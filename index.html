@@ -145,6 +145,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kismetor">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天下一番">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">小复习一波</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-14 20:51:08 / Modified: 21:47:11" itemprop="dateCreated datePublished" datetime="2023-03-14T20:51:08+08:00">2023-03-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="大数据安全复习"><a href="#大数据安全复习" class="headerlink" title="大数据安全复习"></a>大数据安全复习</h1><h2 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h2><h3 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201145556332.png" alt="image-20230201145556332"></p>
+<ul>
+<li>同余<ul>
+<li>1)指的是(a-b)的结果可以被n整除</li>
+<li>2和3)意思是同余具有传递律和交换律</li>
+</ul>
+</li>
+<li>模运算性质<ul>
+<li>加、减、乘满足模的化简法</li>
+<li>具体证明可以写成$a&#x3D;k_1n+r_1,b&#x3D;k_2n+r_2$，然后进行运算，所有带$n$的项在mod后均为0</li>
+</ul>
+</li>
+<li>负数的求模<ul>
+<li>$-9(mod10)&#x3D;1$</li>
+<li>因为：$-9÷10&#x3D;-1…1，即-9&#x3D;10×(-1)+1$</li>
+<li>余数r必须为非负整数，但是商可以是负数，因此构成了负数的模运算法则基础。</li>
+</ul>
+</li>
+<li>模运算快速幂<ul>
+<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151014240.png" alt="image-20230201151014240"></li>
+<li>将高次幂通过乘法拆开，每一部分进行运算后再通过乘法将余数相乘后再取模即可。</li>
+</ul>
+</li>
+</ul>
+<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151502970.png" alt="image-20230201151502970"></p>
+<ul>
+<li>数$\alpha$在模$n$的条件下，存在逆元的前提<ul>
+<li>$gcd(\alpha,n)&#x3D;1$，意思是$\alpha和n$要互质，即两数的公因数只有1</li>
+</ul>
+</li>
+</ul>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><h3 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h3><p>​	也叫移位加密，移位密钥为k，可以通过词频统计和暴力破译</p>
+<h3 id="仿射加密"><a href="#仿射加密" class="headerlink" title="仿射加密"></a>仿射加密</h3><ul>
+<li>密钥为($\alpha,\beta$)，其中前者为斜率，后者为截距，要求斜率与模数n互质</li>
+</ul>
+<p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151813804.png" alt="image-20230201151813804"></p>
+<p>​	<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151830362.png" alt="image-20230201151830362"></p>
+<ul>
+<li>破解方法：暴力穷举12×26种可能或者词频统计列两个等式，先求出来$\alpha$（这里求出来的结果要验证是不是和n互质），如果是再求$\beta$，否则试下一组词频等式组。注意这里商m也是一个未知数，可能会出现多组解。<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201153521601.png" alt="image-20230201153521601"></li>
+</ul>
+<h3 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154159290.png" alt="image-20230201154159290"></p>
+<ul>
+<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154500998.png" alt="image-20230201154500998"></li>
+<li>$C_i$代表密文字母，$P_i$代表明文字母，$K_i$代表密钥的对应位字母</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -657,109 +760,6 @@
 <li>先将文件压缩成摘要，再对摘要签名</li>
 </ul>
 </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kismetor">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天下一番">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">小复习一波</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-03-14 20:51:08 / Modified: 21:47:11" itemprop="dateCreated datePublished" datetime="2023-03-14T20:51:08+08:00">2023-03-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="大数据安全复习"><a href="#大数据安全复习" class="headerlink" title="大数据安全复习"></a>大数据安全复习</h1><h2 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h2><h3 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201145556332.png" alt="image-20230201145556332"></p>
-<ul>
-<li>同余<ul>
-<li>1)指的是(a-b)的结果可以被n整除</li>
-<li>2和3)意思是同余具有传递律和交换律</li>
-</ul>
-</li>
-<li>模运算性质<ul>
-<li>加、减、乘满足模的化简法</li>
-<li>具体证明可以写成$a&#x3D;k_1n+r_1,b&#x3D;k_2n+r_2$，然后进行运算，所有带$n$的项在mod后均为0</li>
-</ul>
-</li>
-<li>负数的求模<ul>
-<li>$-9(mod10)&#x3D;1$</li>
-<li>因为：$-9÷10&#x3D;-1…1，即-9&#x3D;10×(-1)+1$</li>
-<li>余数r必须为非负整数，但是商可以是负数，因此构成了负数的模运算法则基础。</li>
-</ul>
-</li>
-<li>模运算快速幂<ul>
-<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151014240.png" alt="image-20230201151014240"></li>
-<li>将高次幂通过乘法拆开，每一部分进行运算后再通过乘法将余数相乘后再取模即可。</li>
-</ul>
-</li>
-</ul>
-<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151502970.png" alt="image-20230201151502970"></p>
-<ul>
-<li>数$\alpha$在模$n$的条件下，存在逆元的前提<ul>
-<li>$gcd(\alpha,n)&#x3D;1$，意思是$\alpha和n$要互质，即两数的公因数只有1</li>
-</ul>
-</li>
-</ul>
-<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><h3 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h3><p>​	也叫移位加密，移位密钥为k，可以通过词频统计和暴力破译</p>
-<h3 id="仿射加密"><a href="#仿射加密" class="headerlink" title="仿射加密"></a>仿射加密</h3><ul>
-<li>密钥为($\alpha,\beta$)，其中前者为斜率，后者为截距，要求斜率与模数n互质</li>
-</ul>
-<p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151813804.png" alt="image-20230201151813804"></p>
-<p>​	<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151830362.png" alt="image-20230201151830362"></p>
-<ul>
-<li>破解方法：暴力穷举12×26种可能或者词频统计列两个等式，先求出来$\alpha$（这里求出来的结果要验证是不是和n互质），如果是再求$\beta$，否则试下一组词频等式组。注意这里商m也是一个未知数，可能会出现多组解。<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201153521601.png" alt="image-20230201153521601"></li>
-</ul>
-<h3 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154159290.png" alt="image-20230201154159290"></p>
-<ul>
-<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154500998.png" alt="image-20230201154500998"></li>
-<li>$C_i$代表密文字母，$P_i$代表明文字母，$K_i$代表密钥的对应位字母</li>
 </ul>
 
       
