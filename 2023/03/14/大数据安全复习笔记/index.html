@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="大数据安全复习数学基础模运算  同余 1)指的是(a-b)的结果可以被n整除 2和3)意思是同余具有传递律和交换律   模运算性质 加、减、乘满足模的化简法 具体证明可以写成$a&#x3D;k_1n+r_1,b&#x3D;k_2n+r_2$，然后进行运算，所有带$n$的项在mod后均为0   负数的求模 $-9(mod10)&#x3D;1$ 因为：$-9÷10&#x3D;-1…1，即-9&amp;#x3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="大数据安全复习数学基础模运算  同余 1)指的是(a-b)的结果可以被n整除 2和3)意思是同余具有传递律和交换律   模运算性质 加、减、乘满足模的化简法 具体证明可以写成$a&#x3D;k_1n+r_1,b&#x3D;k_2n+r_2$，然后进行运算，所有带$n$的项在mod后均为0   负数的求模 $-9(mod10)&#x3D;1$ 因为：$-9÷10&#x3D;-1…1，即-9&amp;#x3D">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201145556332.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151014240.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151502970.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151813804.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151830362.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201153521601.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154159290.png">
+<meta property="og:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154500998.png">
+<meta property="article:published_time" content="2023-03-14T13:04:50.987Z">
+<meta property="article:modified_time" content="2023-02-01T08:42:18.746Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201145556332.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-大数据安全复习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-03-14T13:04:50.987Z" itemprop="datePublished">2023-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="大数据安全复习"><a href="#大数据安全复习" class="headerlink" title="大数据安全复习"></a>大数据安全复习</h1><h2 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h2><h3 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201145556332.png" alt="image-20230201145556332"></p>
+<ul>
+<li>同余<ul>
+<li>1)指的是(a-b)的结果可以被n整除</li>
+<li>2和3)意思是同余具有传递律和交换律</li>
+</ul>
+</li>
+<li>模运算性质<ul>
+<li>加、减、乘满足模的化简法</li>
+<li>具体证明可以写成$a&#x3D;k_1n+r_1,b&#x3D;k_2n+r_2$，然后进行运算，所有带$n$的项在mod后均为0</li>
+</ul>
+</li>
+<li>负数的求模<ul>
+<li>$-9(mod10)&#x3D;1$</li>
+<li>因为：$-9÷10&#x3D;-1…1，即-9&#x3D;10×(-1)+1$</li>
+<li>余数r必须为非负整数，但是商可以是负数，因此构成了负数的模运算法则基础。</li>
+</ul>
+</li>
+<li>模运算快速幂<ul>
+<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151014240.png" alt="image-20230201151014240"></li>
+<li>将高次幂通过乘法拆开，每一部分进行运算后再通过乘法将余数相乘后再取模即可。</li>
+</ul>
+</li>
+</ul>
+<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151502970.png" alt="image-20230201151502970"></p>
+<ul>
+<li>数$\alpha$在模$n$的条件下，存在逆元的前提<ul>
+<li>$gcd(\alpha,n)&#x3D;1$，意思是$\alpha和n$要互质，即两数的公因数只有1</li>
+</ul>
+</li>
+</ul>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><h3 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h3><p>​	也叫移位加密，移位密钥为k，可以通过词频统计和暴力破译</p>
+<h3 id="仿射加密"><a href="#仿射加密" class="headerlink" title="仿射加密"></a>仿射加密</h3><ul>
+<li>密钥为($\alpha,\beta$)，其中前者为斜率，后者为截距，要求斜率与模数n互质</li>
+</ul>
+<p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151813804.png" alt="image-20230201151813804"></p>
+<p>​	<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201151830362.png" alt="image-20230201151830362"></p>
+<ul>
+<li>破解方法：暴力穷举12×26种可能或者词频统计列两个等式，先求出来$\alpha$（这里求出来的结果要验证是不是和n互质），如果是再求$\beta$，否则试下一组词频等式组。注意这里商m也是一个未知数，可能会出现多组解。<img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201153521601.png" alt="image-20230201153521601"></li>
+</ul>
+<h3 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h3><p><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154159290.png" alt="image-20230201154159290"></p>
+<ul>
+<li><img src="C:\Users\zrk\AppData\Roaming\Typora\typora-user-images\image-20230201154500998.png" alt="image-20230201154500998"></li>
+<li>$C_i$代表密文字母，$P_i$代表明文字母，$K_i$代表密钥的对应位字母</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clf89n2f40004g8ut8lz8cnn2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/14/test-my-site/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test_my_site</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/test-my-site/">test_my_site</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
