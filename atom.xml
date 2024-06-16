@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-01-02T13:27:57.842Z</updated>
+  <updated>2024-06-16T12:33:49.366Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024_06_14_agent</title>
+    <link href="http://example.com/2024/06/16/2024-06-14-agent/"/>
+    <id>http://example.com/2024/06/16/2024-06-14-agent/</id>
+    <published>2024-06-16T12:33:00.000Z</published>
+    <updated>2024-06-16T12:33:49.366Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="20240614"><a class="markdownIt-Anchor" href="#20240614"></a> 2024.06.14</h1><h2 id="done"><a class="markdownIt-Anchor" href="#done"></a> Done</h2><ul><li>法律相关数据整理<ul><li>JEC-QA.json</li><li>CrimeKgAssitant.json</li><li>lawzhidao_filter.csv</li><li>tigerbot-laws-plugin.json</li><li>Xintelaiyawenshu_ms_dataset.json</li></ul></li><li>主要为问答对形式，内容包括司法竞赛、中华人民共和国法律法规、开源社区司法咨询等，适用于基础模型的预训练阶段，具体场景和回答格式需再精心构建微调数据集</li></ul><h2 id="doing"><a class="markdownIt-Anchor" href="#doing"></a> Doing</h2><h3 id="chatlaw-a-multi-agent-collaborative-legal-assistant-with-knowledge-graph-enhanced-mixture-of-experts-large-language-model"><a class="markdownIt-Anchor" href="#chatlaw-a-multi-agent-collaborative-legal-assistant-with-knowledge-graph-enhanced-mixture-of-experts-large-language-model"></a> Chatlaw: A Multi-Agent Collaborative Legal Assistant with Knowledge Graph Enhanced Mixture-of-Experts Large Language Model</h3><p>北京大学chatlaw团队，5月31日挂到arXiv，还未被录用</p><h4 id="train-data"><a class="markdownIt-Anchor" href="#train-data"></a> Train data</h4><p>精心构建的法律数据集包含10个主要类别和44个次要类别，总计约400万个数据样本。该数据集包含广泛的法律领域，包括但不限于案例分类、法规预测、法律文件起草和子案例分割。此外，它涵盖了舆论分析、命名实体识别和法律咨询等专业任务。</p><p>法律数据的原始格式并不直接适用于训练法律模型；因此，我们通过一系列步骤处理收集到的法律数据，将其转换为大型语言模型可以识别和利用的标准格式。对于官方发布的法律条款和判决文件，我们根据法律条目将它们转换为完成任务，要么完成条款的完整文本，要么根据文档的基本信息填充整个文档。对于法律咨询数据集，我们将它们格式化为 LLAMA 聊天模板的标准指令输入输出格式。为了确保法律模型通常在有和没有参考规定的情况下运行，我们准备了两种任务模式：一种是在输入中添加额外的参考，另一种是允许模型直接引用输出中的相关规定。</p><p><img src="/2024/06/16/2024-06-14-agent/image-20240612224048577.png" alt="image-20240612224048577"></p><h4 id="moe-model"><a class="markdownIt-Anchor" href="#moe-model"></a> MoE Model</h4><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gWibA9dYRLjcXlznAVbARYqoBDj8LqibjcQqGW80CDG5XQKtNXAms8MVzL4da0Fdywz6am4ZqF0GpGZA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p><p><img src="/2024/06/16/2024-06-14-agent/image-20240612225723165.png" alt="image-20240612225723165"></p><p>router 会计算每一个 token 和专家们的匹配权重，然后每个 token 会被送入最匹配的 top-k 个专家进行处理，最后根据 router 的权重加权求和汇聚成输出。</p><p><img src="/2024/06/16/2024-06-14-agent/image-20240612231020857.png" alt="image-20240612231020857"></p><h4 id="framework"><a class="markdownIt-Anchor" href="#framework"></a> Framework</h4><p>Chatlaw 采用多智能体协作框架。该框架涉及几个角色，每个代理都遵循“意义思维-行动”三步过程：</p><ul><li>Legal Assistant分析咨询内容，选择相应的法律知识图谱，然后要求用户问题填写图节点，直到获得必要的信息;</li><li><ol start="2"><li>Legal Researcher根据关键信息搜索互联网，找到相关的法律规定，并对案例进行分类，根据类别获得类似案例;</li></ol></li><li>3)Senior Lawer 分析相关案例，提供法律建议;</li><li>4)法律编辑，总结意见和起草正式的法律文件，如合同，以满足基于先前信息的用户需求。</li></ul><p><img src="/2024/06/16/2024-06-14-agent/image-20240612223555170.png" alt="image-20240612223555170"></p><h4 id="case"><a class="markdownIt-Anchor" href="#case"></a> Case</h4><p><img src="/2024/06/16/2024-06-14-agent/image-20240612231312152.png" alt="image-20240612231312152"></p><h4 id="experiment"><a class="markdownIt-Anchor" href="#experiment"></a> Experiment</h4><p>在 2018 年至 2022 年的统一法律专业考试中，我们的 Chatlaw-MoE 模型始终优于所有其他模型。平均得分为115，Chatlaw-MoE显著优于GPT-4的平均得分为104。具体而言，Chatlaw-MoE在五年内得分为113、124、143、115和78，始终表现出优越的性能。相比之下，GPT-4 的分数分别为 102、108、82、82 和 118。这种一致的出色表现突出了 Chatlaw-MoE 在处理法律考试问题时增强的能力，这可能是由于多专家系统设计动态选择最合适的专家来处理输入特征。在法律llm中，Fuzi-Mingcha的平均得分为34，在2019年最高，为40。对于一般llm，Baichuan2-7B最强，平均得分为61，最高得分为70。</p><p><img src="/2024/06/16/2024-06-14-agent/image-20240612231538398.png" alt="image-20240612231538398"></p><h4 id="idea"><a class="markdownIt-Anchor" href="#idea"></a> Idea</h4><ul><li>知识图谱方式反问构建kv prompt</li><li>不同agent限定使用tools，如RAG、formation、知识图谱结构、coding</li><li>MoE不同专家attention得到综合回答</li><li>专门构建一个firewall strategy过滤敏感回答</li></ul><h3 id="to-do"><a class="markdownIt-Anchor" href="#to-do"></a> TO DO</h3><ul><li>进一步确定智慧治理司法具体监管领域</li><li>api？finetuning？</li><li>探索tools集成技术</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;20240614&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#20240614&quot;&gt;&lt;/a&gt; 2024.06.14&lt;/h1&gt;
+&lt;h2 id=&quot;done&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#done&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="智慧治理" scheme="http://example.com/tags/%E6%99%BA%E6%85%A7%E6%B2%BB%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>人机交互实验11</title>
